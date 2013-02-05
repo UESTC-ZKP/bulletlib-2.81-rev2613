@@ -310,9 +310,21 @@ typedef btAlignedObjectArray<eVSolver::_>	tVSolverArray;
 typedef btAlignedObjectArray<ePSolver::_>	tPSolverArray;
 typedef btSoftBody::fCollision fCollision;
 
+typedef btSoftBody::Cluster Cluster;
+typedef btSoftBody::Impulse Impulse;
+typedef btSoftBody::Body Body;
+typedef btSoftBody::Joint Joint;
+typedef btSoftBody::LJoint LJoint;
+typedef btSoftBody::AJoint AJoint;
+typedef btSoftBody::CJoint CJoint;
+
+ 
 typedef btCollisionWorld::RayResultCallback RayResultCallback;
 typedef btCollisionWorld::LocalRayResult LocalRayResult;
 typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
+
+typedef btAlignedObjectArray<btScalar>	tScalarArray;
+typedef btAlignedObjectArray<btVector3>	tVector3Array;
 
 
 #ifdef __cplusplus
@@ -1117,6 +1129,1740 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Face(void * jarg1) {
   Face *arg1 = (Face *) 0 ;
   
   arg1 = (Face *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_masses_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  tScalarArray arg2 ;
+  tScalarArray *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (tScalarArray *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null tScalarArray", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_masses = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_masses_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  tScalarArray result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_masses);
+  jresult = new tScalarArray((const tScalarArray &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_nodes_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btAlignedObjectArray< Node * > *arg2 = (btAlignedObjectArray< Node * > *) 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btAlignedObjectArray< Node * > *)jarg2; 
+  if (arg1) (arg1)->m_nodes = *arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_nodes_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btAlignedObjectArray< Node * > *result = 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btAlignedObjectArray< Node * > *)& ((arg1)->m_nodes);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_framerefs_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  tVector3Array arg2 ;
+  tVector3Array *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (tVector3Array *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null tVector3Array", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_framerefs = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_framerefs_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  tVector3Array result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_framerefs);
+  jresult = new tVector3Array((const tVector3Array &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_framexform_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btTransform arg2 ;
+  btTransform *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btTransform *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btTransform", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_framexform = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_framexform_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btTransform result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_framexform);
+  jresult = new btTransform((const btTransform &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_idmass_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_idmass = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_idmass_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_idmass);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_imass_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_imass = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_imass_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_imass);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_locii_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btMatrix3x3 arg2 ;
+  btMatrix3x3 *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btMatrix3x3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btMatrix3x3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_locii = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_locii_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btMatrix3x3 result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_locii);
+  jresult = new btMatrix3x3((const btMatrix3x3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_invwi_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btMatrix3x3 arg2 ;
+  btMatrix3x3 *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btMatrix3x3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btMatrix3x3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_invwi = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_invwi_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btMatrix3x3 result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_invwi);
+  jresult = new btMatrix3x3((const btMatrix3x3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_com_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_com = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_com_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_com);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_vimpulses_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_vimpulses;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_vimpulses_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_vimpulses);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_dimpulses_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_dimpulses;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_dimpulses_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_dimpulses);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_nvimpulses_set(void * jarg1, int jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_nvimpulses = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Cluster_m_nvimpulses_get(void * jarg1) {
+  int jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  int result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (int) ((arg1)->m_nvimpulses);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_ndimpulses_set(void * jarg1, int jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_ndimpulses = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Cluster_m_ndimpulses_get(void * jarg1) {
+  int jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  int result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (int) ((arg1)->m_ndimpulses);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_lv_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_lv = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_lv_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_lv);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_av_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_av = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_av_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result =  ((arg1)->m_av);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_leaf_set(void * jarg1, void * jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btDbvtNode *arg2 = (btDbvtNode *) 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btDbvtNode *)jarg2; 
+  if (arg1) (arg1)->m_leaf = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Cluster_m_leaf_get(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btDbvtNode *result = 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btDbvtNode *) ((arg1)->m_leaf);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_ndamping_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_ndamping = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_ndamping_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_ndamping);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_ldamping_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_ldamping = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_ldamping_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_ldamping);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_adamping_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_adamping = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_adamping_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_adamping);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_matching_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_matching = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_matching_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_matching);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_maxSelfCollisionImpulse_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_maxSelfCollisionImpulse = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_maxSelfCollisionImpulse_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_maxSelfCollisionImpulse);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_selfCollisionImpulseFactor_set(void * jarg1, float jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_selfCollisionImpulseFactor = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Cluster_m_selfCollisionImpulseFactor_get(void * jarg1) {
+  float jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  btScalar result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (btScalar) ((arg1)->m_selfCollisionImpulseFactor);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_containsAnchor_set(void * jarg1, unsigned int jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  bool arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = jarg2 ? true : false; 
+  if (arg1) (arg1)->m_containsAnchor = arg2;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Cluster_m_containsAnchor_get(void * jarg1) {
+  unsigned int jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  bool result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (bool) ((arg1)->m_containsAnchor);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_collide_set(void * jarg1, unsigned int jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  bool arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = jarg2 ? true : false; 
+  if (arg1) (arg1)->m_collide = arg2;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Cluster_m_collide_get(void * jarg1) {
+  unsigned int jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  bool result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (bool) ((arg1)->m_collide);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Cluster_m_clusterIndex_set(void * jarg1, int jarg2) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_clusterIndex = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Cluster_m_clusterIndex_get(void * jarg1) {
+  int jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  int result;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (int) ((arg1)->m_clusterIndex);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Cluster() {
+  void * jresult ;
+  Cluster *result = 0 ;
+  
+  result = (Cluster *)new Cluster();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Cluster(void * jarg1) {
+  Cluster *arg1 = (Cluster *) 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Impulse_m_velocity_set(void * jarg1, void * jarg2) {
+  Impulse *arg1 = (Impulse *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Impulse *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_velocity = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Impulse_m_velocity_get(void * jarg1) {
+  void * jresult ;
+  Impulse *arg1 = (Impulse *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Impulse *)jarg1; 
+  result =  ((arg1)->m_velocity);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Impulse_m_drift_set(void * jarg1, void * jarg2) {
+  Impulse *arg1 = (Impulse *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Impulse *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_drift = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Impulse_m_drift_get(void * jarg1) {
+  void * jresult ;
+  Impulse *arg1 = (Impulse *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Impulse *)jarg1; 
+  result =  ((arg1)->m_drift);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Impulse_m_asVelocity_set(void * jarg1, int jarg2) {
+  Impulse *arg1 = (Impulse *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Impulse *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_asVelocity = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Impulse_m_asVelocity_get(void * jarg1) {
+  int jresult ;
+  Impulse *arg1 = (Impulse *) 0 ;
+  int result;
+  
+  arg1 = (Impulse *)jarg1; 
+  result = (int) ((arg1)->m_asVelocity);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Impulse_m_asDrift_set(void * jarg1, int jarg2) {
+  Impulse *arg1 = (Impulse *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Impulse *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_asDrift = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Impulse_m_asDrift_get(void * jarg1) {
+  int jresult ;
+  Impulse *arg1 = (Impulse *) 0 ;
+  int result;
+  
+  arg1 = (Impulse *)jarg1; 
+  result = (int) ((arg1)->m_asDrift);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Impulse() {
+  void * jresult ;
+  Impulse *result = 0 ;
+  
+  result = (Impulse *)new Impulse();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Impulse(void * jarg1) {
+  Impulse *arg1 = (Impulse *) 0 ;
+  
+  arg1 = (Impulse *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_m_soft_set(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  Cluster *arg2 = (Cluster *) 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (Cluster *)jarg2; 
+  if (arg1) (arg1)->m_soft = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_m_soft_get(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  Cluster *result = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  result = (Cluster *) ((arg1)->m_soft);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_m_rigid_set(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  btRigidBody *arg2 = (btRigidBody *) 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btRigidBody *)jarg2; 
+  if (arg1) (arg1)->m_rigid = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_m_rigid_get(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btRigidBody *result = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  result = (btRigidBody *) ((arg1)->m_rigid);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_m_collisionObject_set(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  btCollisionObject *arg2 = (btCollisionObject *) 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btCollisionObject *)jarg2; 
+  if (arg1) (arg1)->m_collisionObject = (btCollisionObject const *)arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_m_collisionObject_get(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btCollisionObject *result = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  result = (btCollisionObject *) ((arg1)->m_collisionObject);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Body__SWIG_0() {
+  void * jresult ;
+  Body *result = 0 ;
+  
+  result = (Body *)new Body();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Body__SWIG_1(void * jarg1) {
+  void * jresult ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  Body *result = 0 ;
+  
+  arg1 = (Cluster *)jarg1; 
+  result = (Body *)new Body(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Body__SWIG_2(void * jarg1) {
+  void * jresult ;
+  btCollisionObject *arg1 = (btCollisionObject *) 0 ;
+  Body *result = 0 ;
+  
+  arg1 = (btCollisionObject *)jarg1; 
+  result = (Body *)new Body((btCollisionObject const *)arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_activate(void * jarg1) {
+  Body *arg1 = (Body *) 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  ((Body const *)arg1)->activate();
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_invWorldInertia(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btMatrix3x3 *result = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  result = (btMatrix3x3 *) &((Body const *)arg1)->invWorldInertia();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Body_invMass(void * jarg1) {
+  float jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btScalar result;
+  
+  arg1 = (Body *)jarg1; 
+  result = (btScalar)((Body const *)arg1)->invMass();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_xform(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btTransform *result = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  result = (btTransform *) &((Body const *)arg1)->xform();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_linearVelocity(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Body *)jarg1; 
+  result = ((Body const *)arg1)->linearVelocity();
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_angularVelocity__SWIG_0(void * jarg1, void * jarg2) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 result;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = ((Body const *)arg1)->angularVelocity((btVector3 const &)*arg2);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_angularVelocity__SWIG_1(void * jarg1) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Body *)jarg1; 
+  result = ((Body const *)arg1)->angularVelocity();
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Body_velocity(void * jarg1, void * jarg2) {
+  void * jresult ;
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 result;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = ((Body const *)arg1)->velocity((btVector3 const &)*arg2);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyVImpulse(void * jarg1, void * jarg2, void * jarg3) {
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyVImpulse((btVector3 const &)*arg2,(btVector3 const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyDImpulse(void * jarg1, void * jarg2, void * jarg3) {
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyDImpulse((btVector3 const &)*arg2,(btVector3 const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyImpulse(void * jarg1, void * jarg2, void * jarg3) {
+  Body *arg1 = (Body *) 0 ;
+  Impulse *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (Impulse *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Impulse const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyImpulse((Impulse const &)*arg2,(btVector3 const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyVAImpulse(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyVAImpulse((btVector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyDAImpulse(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyDAImpulse((btVector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyAImpulse(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  Impulse *arg2 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (Impulse *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Impulse const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyAImpulse((Impulse const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Body_applyDCImpulse(void * jarg1, void * jarg2) {
+  Body *arg1 = (Body *) 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  ((Body const *)arg1)->applyDCImpulse((btVector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Body(void * jarg1) {
+  Body *arg1 = (Body *) 0 ;
+  
+  arg1 = (Body *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_bodies_set(void * jarg1, void * jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  Body *arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (Body *)jarg2; 
+  {
+    size_t ii;
+    Body *b = (Body *) arg1->m_bodies;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((Body *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_bodies_get(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  Body *result = 0 ;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (Body *)(Body *) ((arg1)->m_bodies);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_refs_set(void * jarg1, void * jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_refs;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_refs_get(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_refs);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_cfm_set(void * jarg1, float jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_cfm = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_cfm_get(void * jarg1) {
+  float jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar result;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (btScalar) ((arg1)->m_cfm);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_erp_set(void * jarg1, float jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_erp = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_erp_get(void * jarg1) {
+  float jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar result;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (btScalar) ((arg1)->m_erp);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_split_set(void * jarg1, float jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_split = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_split_get(void * jarg1) {
+  float jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar result;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (btScalar) ((arg1)->m_split);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_drift_set(void * jarg1, void * jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_drift = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_drift_get(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Joint *)jarg1; 
+  result =  ((arg1)->m_drift);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_sdrift_set(void * jarg1, void * jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_sdrift = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_sdrift_get(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btVector3 result;
+  
+  arg1 = (Joint *)jarg1; 
+  result =  ((arg1)->m_sdrift);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_massmatrix_set(void * jarg1, void * jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btMatrix3x3 arg2 ;
+  btMatrix3x3 *argp2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  argp2 = (btMatrix3x3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btMatrix3x3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_massmatrix = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_massmatrix_get(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  btMatrix3x3 result;
+  
+  arg1 = (Joint *)jarg1; 
+  result =  ((arg1)->m_massmatrix);
+  jresult = new btMatrix3x3((const btMatrix3x3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_delete_set(void * jarg1, unsigned int jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  bool arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = jarg2 ? true : false; 
+  if (arg1) (arg1)->m_delete = arg2;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Joint_m_delete_get(void * jarg1) {
+  unsigned int jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  bool result;
+  
+  arg1 = (Joint *)jarg1; 
+  result = (bool) ((arg1)->m_delete);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Joint(void * jarg1) {
+  Joint *arg1 = (Joint *) 0 ;
+  
+  arg1 = (Joint *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Prepare(void * jarg1, float jarg2, int jarg3) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  int arg3 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->Prepare(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Solve(void * jarg1, float jarg2, float jarg3) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  btScalar arg3 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (btScalar)jarg3; 
+  (arg1)->Solve(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Terminate(void * jarg1, float jarg2) {
+  Joint *arg1 = (Joint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (Joint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->Terminate(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_Type(void * jarg1) {
+  void * jresult ;
+  Joint *arg1 = (Joint *) 0 ;
+  Joint::eType::_ result;
+  
+  arg1 = (Joint *)jarg1; 
+  result = ((Joint const *)arg1)->Type();
+  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_LJoint_m_rpos_set(void * jarg1, void * jarg2) {
+  LJoint *arg1 = (LJoint *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_rpos;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_LJoint_m_rpos_get(void * jarg1) {
+  void * jresult ;
+  LJoint *arg1 = (LJoint *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_rpos);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_LJoint_Prepare(void * jarg1, float jarg2, int jarg3) {
+  LJoint *arg1 = (LJoint *) 0 ;
+  btScalar arg2 ;
+  int arg3 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->Prepare(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_LJoint_Solve(void * jarg1, float jarg2, float jarg3) {
+  LJoint *arg1 = (LJoint *) 0 ;
+  btScalar arg2 ;
+  btScalar arg3 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (btScalar)jarg3; 
+  (arg1)->Solve(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_LJoint_Terminate(void * jarg1, float jarg2) {
+  LJoint *arg1 = (LJoint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->Terminate(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_LJoint_Type(void * jarg1) {
+  void * jresult ;
+  LJoint *arg1 = (LJoint *) 0 ;
+  Joint::eType::_ result;
+  
+  arg1 = (LJoint *)jarg1; 
+  result = ((LJoint const *)arg1)->Type();
+  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_LJoint() {
+  void * jresult ;
+  LJoint *result = 0 ;
+  
+  result = (LJoint *)new LJoint();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_LJoint(void * jarg1) {
+  LJoint *arg1 = (LJoint *) 0 ;
+  
+  arg1 = (LJoint *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_m_axis_set(void * jarg1, void * jarg2) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_axis;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_AJoint_m_axis_get(void * jarg1) {
+  void * jresult ;
+  AJoint *arg1 = (AJoint *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_axis);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_m_icontrol_set(void * jarg1, void * jarg2) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  AJoint::IControl *arg2 = (AJoint::IControl *) 0 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  arg2 = (AJoint::IControl *)jarg2; 
+  if (arg1) (arg1)->m_icontrol = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_AJoint_m_icontrol_get(void * jarg1) {
+  void * jresult ;
+  AJoint *arg1 = (AJoint *) 0 ;
+  AJoint::IControl *result = 0 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  result = (AJoint::IControl *) ((arg1)->m_icontrol);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_Prepare(void * jarg1, float jarg2, int jarg3) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  btScalar arg2 ;
+  int arg3 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->Prepare(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_Solve(void * jarg1, float jarg2, float jarg3) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  btScalar arg2 ;
+  btScalar arg3 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (btScalar)jarg3; 
+  (arg1)->Solve(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_Terminate(void * jarg1, float jarg2) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->Terminate(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_AJoint_Type(void * jarg1) {
+  void * jresult ;
+  AJoint *arg1 = (AJoint *) 0 ;
+  Joint::eType::_ result;
+  
+  arg1 = (AJoint *)jarg1; 
+  result = ((AJoint const *)arg1)->Type();
+  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_AJoint() {
+  void * jresult ;
+  AJoint *result = 0 ;
+  
+  result = (AJoint *)new AJoint();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_AJoint(void * jarg1) {
+  AJoint *arg1 = (AJoint *) 0 ;
+  
+  arg1 = (AJoint *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_m_life_set(void * jarg1, int jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  int arg2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_life = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_CJoint_m_life_get(void * jarg1) {
+  int jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  int result;
+  
+  arg1 = (CJoint *)jarg1; 
+  result = (int) ((arg1)->m_life);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_m_maxlife_set(void * jarg1, int jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  int arg2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_maxlife = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_CJoint_m_maxlife_get(void * jarg1) {
+  int jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  int result;
+  
+  arg1 = (CJoint *)jarg1; 
+  result = (int) ((arg1)->m_maxlife);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_m_rpos_set(void * jarg1, void * jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btVector3 *arg2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  {
+    size_t ii;
+    btVector3 *b = (btVector3 *) arg1->m_rpos;
+    for (ii = 0; ii < (size_t)2; ii++) b[ii] = *((btVector3 *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_CJoint_m_rpos_get(void * jarg1) {
+  void * jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  result = (btVector3 *)(btVector3 *) ((arg1)->m_rpos);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_m_normal_set(void * jarg1, void * jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btVector3 arg2 ;
+  btVector3 *argp2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  argp2 = (btVector3 *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  if (arg1) (arg1)->m_normal = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_CJoint_m_normal_get(void * jarg1) {
+  void * jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  btVector3 result;
+  
+  arg1 = (CJoint *)jarg1; 
+  result =  ((arg1)->m_normal);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_m_friction_set(void * jarg1, float jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  if (arg1) (arg1)->m_friction = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_CJoint_m_friction_get(void * jarg1) {
+  float jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  btScalar result;
+  
+  arg1 = (CJoint *)jarg1; 
+  result = (btScalar) ((arg1)->m_friction);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_Prepare(void * jarg1, float jarg2, int jarg3) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btScalar arg2 ;
+  int arg3 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->Prepare(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_Solve(void * jarg1, float jarg2, float jarg3) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btScalar arg2 ;
+  btScalar arg3 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (btScalar)jarg3; 
+  (arg1)->Solve(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_Terminate(void * jarg1, float jarg2) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (CJoint *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->Terminate(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_CJoint_Type(void * jarg1) {
+  void * jresult ;
+  CJoint *arg1 = (CJoint *) 0 ;
+  Joint::eType::_ result;
+  
+  arg1 = (CJoint *)jarg1; 
+  result = ((CJoint const *)arg1)->Type();
+  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_CJoint() {
+  void * jresult ;
+  CJoint *result = 0 ;
+  
+  result = (CJoint *)new CJoint();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_CJoint(void * jarg1) {
+  CJoint *arg1 = (CJoint *) 0 ;
+  
+  arg1 = (CJoint *)jarg1; 
   delete arg1;
 }
 
@@ -2858,7 +4604,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_fdbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_fdbvt);
-    btDbvt *temp = new btDbvt();
+     btDbvt *temp = new btDbvt();
   result.clone(*temp);
   jresult = temp;
   return jresult;
@@ -2890,7 +4636,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_cdbvt_get(void * jarg1) {
   result =  ((arg1)->m_cdbvt);
   btDbvt *temp = new btDbvt();
   result.clone(*temp);
-  jresult = temp;
+  jresult = temp; 
   return jresult;
 }
 
@@ -3775,153 +5521,153 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAnchor__SWIG_5(void * jarg1,
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_0(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::LJoint::Specs *arg2 = 0 ;
-  btSoftBody::Cluster *arg3 = (btSoftBody::Cluster *) 0 ;
-  btSoftBody::Body arg4 ;
-  btSoftBody::Body *argp4 ;
+  LJoint::Specs *arg2 = 0 ;
+  Cluster *arg3 = (Cluster *) 0 ;
+  Body arg4 ;
+  Body *argp4 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::LJoint::Specs *)jarg2;
+  arg2 = (LJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::LJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "LJoint::Specs const & type is null", 0);
     return ;
   } 
-  arg3 = (btSoftBody::Cluster *)jarg3; 
-  argp4 = (btSoftBody::Body *)jarg4; 
+  arg3 = (Cluster *)jarg3; 
+  argp4 = (Body *)jarg4; 
   if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btSoftBody::Body", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Body", 0);
     return ;
   }
   arg4 = *argp4; 
-  (arg1)->appendLinearJoint((btSoftBody::LJoint::Specs const &)*arg2,arg3,arg4);
+  (arg1)->appendLinearJoint((LJoint::Specs const &)*arg2,arg3,arg4);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::LJoint::Specs *arg2 = 0 ;
-  btSoftBody::Body arg3 ;
-  btSoftBody::Body *argp3 ;
+  LJoint::Specs *arg2 = 0 ;
+  Body arg3 ;
+  Body *argp3 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::LJoint::Specs *)jarg2;
+  arg2 = (LJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::LJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "LJoint::Specs const & type is null", 0);
     return ;
   } 
-  argp3 = (btSoftBody::Body *)jarg3; 
+  argp3 = (Body *)jarg3; 
   if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btSoftBody::Body", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Body", 0);
     return ;
   }
   arg3 = *argp3; 
-  (arg1)->appendLinearJoint((btSoftBody::LJoint::Specs const &)*arg2,arg3);
+  (arg1)->appendLinearJoint((LJoint::Specs const &)*arg2,arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_2(void * jarg1, void * jarg2) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::LJoint::Specs *arg2 = 0 ;
+  LJoint::Specs *arg2 = 0 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::LJoint::Specs *)jarg2;
+  arg2 = (LJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::LJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "LJoint::Specs const & type is null", 0);
     return ;
   } 
-  (arg1)->appendLinearJoint((btSoftBody::LJoint::Specs const &)*arg2);
+  (arg1)->appendLinearJoint((LJoint::Specs const &)*arg2);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_3(void * jarg1, void * jarg2, void * jarg3) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::LJoint::Specs *arg2 = 0 ;
+  LJoint::Specs *arg2 = 0 ;
   btSoftBody *arg3 = (btSoftBody *) 0 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::LJoint::Specs *)jarg2;
+  arg2 = (LJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::LJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "LJoint::Specs const & type is null", 0);
     return ;
   } 
   arg3 = (btSoftBody *)jarg3; 
-  (arg1)->appendLinearJoint((btSoftBody::LJoint::Specs const &)*arg2,arg3);
+  (arg1)->appendLinearJoint((LJoint::Specs const &)*arg2,arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_0(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::AJoint::Specs *arg2 = 0 ;
-  btSoftBody::Cluster *arg3 = (btSoftBody::Cluster *) 0 ;
-  btSoftBody::Body arg4 ;
-  btSoftBody::Body *argp4 ;
+  AJoint::Specs *arg2 = 0 ;
+  Cluster *arg3 = (Cluster *) 0 ;
+  Body arg4 ;
+  Body *argp4 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::AJoint::Specs *)jarg2;
+  arg2 = (AJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::AJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "AJoint::Specs const & type is null", 0);
     return ;
   } 
-  arg3 = (btSoftBody::Cluster *)jarg3; 
-  argp4 = (btSoftBody::Body *)jarg4; 
+  arg3 = (Cluster *)jarg3; 
+  argp4 = (Body *)jarg4; 
   if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btSoftBody::Body", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Body", 0);
     return ;
   }
   arg4 = *argp4; 
-  (arg1)->appendAngularJoint((btSoftBody::AJoint::Specs const &)*arg2,arg3,arg4);
+  (arg1)->appendAngularJoint((AJoint::Specs const &)*arg2,arg3,arg4);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::AJoint::Specs *arg2 = 0 ;
-  btSoftBody::Body arg3 ;
-  btSoftBody::Body *argp3 ;
+  AJoint::Specs *arg2 = 0 ;
+  Body arg3 ;
+  Body *argp3 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::AJoint::Specs *)jarg2;
+  arg2 = (AJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::AJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "AJoint::Specs const & type is null", 0);
     return ;
   } 
-  argp3 = (btSoftBody::Body *)jarg3; 
+  argp3 = (Body *)jarg3; 
   if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btSoftBody::Body", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Body", 0);
     return ;
   }
   arg3 = *argp3; 
-  (arg1)->appendAngularJoint((btSoftBody::AJoint::Specs const &)*arg2,arg3);
+  (arg1)->appendAngularJoint((AJoint::Specs const &)*arg2,arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_2(void * jarg1, void * jarg2) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::AJoint::Specs *arg2 = 0 ;
+  AJoint::Specs *arg2 = 0 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::AJoint::Specs *)jarg2;
+  arg2 = (AJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::AJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "AJoint::Specs const & type is null", 0);
     return ;
   } 
-  (arg1)->appendAngularJoint((btSoftBody::AJoint::Specs const &)*arg2);
+  (arg1)->appendAngularJoint((AJoint::Specs const &)*arg2);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_3(void * jarg1, void * jarg2, void * jarg3) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
-  btSoftBody::AJoint::Specs *arg2 = 0 ;
+  AJoint::Specs *arg2 = 0 ;
   btSoftBody *arg3 = (btSoftBody *) 0 ;
   
   arg1 = (btSoftBody *)jarg1; 
-  arg2 = (btSoftBody::AJoint::Specs *)jarg2;
+  arg2 = (AJoint::Specs *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::AJoint::Specs const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "AJoint::Specs const & type is null", 0);
     return ;
   } 
   arg3 = (btSoftBody *)jarg3; 
-  (arg1)->appendAngularJoint((btSoftBody::AJoint::Specs const &)*arg2,arg3);
+  (arg1)->appendAngularJoint((AJoint::Specs const &)*arg2,arg3);
 }
 
 
@@ -4245,11 +5991,11 @@ SWIGEXPORT int SWIGSTDCALL CSharp_btSoftBody_clusterCount(void * jarg1) {
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_clusterCom__SWIG_0(void * jarg1) {
   void * jresult ;
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 result;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
-  result = btSoftBody::clusterCom((btSoftBody::Cluster const *)arg1);
+  arg1 = (Cluster *)jarg1; 
+  result = btSoftBody::clusterCom((Cluster const *)arg1);
   jresult = new btVector3((const btVector3 &)result); 
   return jresult;
 }
@@ -4271,28 +6017,28 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_clusterCom__SWIG_1(void * jarg1,
 
 SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_clusterVelocity(void * jarg1, void * jarg2) {
   void * jresult ;
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   btVector3 result;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
     return 0;
   } 
-  result = btSoftBody::clusterVelocity((btSoftBody::Cluster const *)arg1,(btVector3 const &)*arg2);
+  result = btSoftBody::clusterVelocity((Cluster const *)arg1,(btVector3 const &)*arg2);
   jresult = new btVector3((const btVector3 &)result); 
   return jresult;
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterVImpulse(void * jarg1, void * jarg2, void * jarg3) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   btVector3 *arg3 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
@@ -4308,11 +6054,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterVImpulse(void * jarg1, void
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterDImpulse(void * jarg1, void * jarg2, void * jarg3) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   btVector3 *arg3 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
@@ -4328,30 +6074,30 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterDImpulse(void * jarg1, void
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterImpulse(void * jarg1, void * jarg2, void * jarg3) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
-  btSoftBody::Impulse *arg3 = 0 ;
+  Impulse *arg3 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
     return ;
   } 
-  arg3 = (btSoftBody::Impulse *)jarg3;
+  arg3 = (Impulse *)jarg3;
   if (!arg3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::Impulse const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Impulse const & type is null", 0);
     return ;
   } 
-  btSoftBody::clusterImpulse(arg1,(btVector3 const &)*arg2,(btSoftBody::Impulse const &)*arg3);
+  btSoftBody::clusterImpulse(arg1,(btVector3 const &)*arg2,(Impulse const &)*arg3);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterVAImpulse(void * jarg1, void * jarg2) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
@@ -4362,10 +6108,10 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterVAImpulse(void * jarg1, voi
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterDAImpulse(void * jarg1, void * jarg2) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
@@ -4376,24 +6122,24 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterDAImpulse(void * jarg1, voi
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterAImpulse(void * jarg1, void * jarg2) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
-  btSoftBody::Impulse *arg2 = 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
+  Impulse *arg2 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
-  arg2 = (btSoftBody::Impulse *)jarg2;
+  arg1 = (Cluster *)jarg1; 
+  arg2 = (Impulse *)jarg2;
   if (!arg2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btSoftBody::Impulse const & type is null", 0);
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Impulse const & type is null", 0);
     return ;
   } 
-  btSoftBody::clusterAImpulse(arg1,(btSoftBody::Impulse const &)*arg2);
+  btSoftBody::clusterAImpulse(arg1,(Impulse const &)*arg2);
 }
 
 
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_clusterDCImpulse(void * jarg1, void * jarg2) {
-  btSoftBody::Cluster *arg1 = (btSoftBody::Cluster *) 0 ;
+  Cluster *arg1 = (Cluster *) 0 ;
   btVector3 *arg2 = 0 ;
   
-  arg1 = (btSoftBody::Cluster *)jarg1; 
+  arg1 = (Cluster *)jarg1; 
   arg2 = (btVector3 *)jarg2;
   if (!arg2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
@@ -12855,6 +14601,18 @@ SWIGEXPORT Feature * SWIGSTDCALL CSharp_Link_SWIGUpcast(Link *jarg1) {
 
 SWIGEXPORT Feature * SWIGSTDCALL CSharp_Face_SWIGUpcast(Face *jarg1) {
     return (Feature *)jarg1;
+}
+
+SWIGEXPORT Joint * SWIGSTDCALL CSharp_LJoint_SWIGUpcast(LJoint *jarg1) {
+    return (Joint *)jarg1;
+}
+
+SWIGEXPORT Joint * SWIGSTDCALL CSharp_AJoint_SWIGUpcast(AJoint *jarg1) {
+    return (Joint *)jarg1;
+}
+
+SWIGEXPORT Joint * SWIGSTDCALL CSharp_CJoint_SWIGUpcast(CJoint *jarg1) {
+    return (Joint *)jarg1;
 }
 
 SWIGEXPORT btSoftBodySolver * SWIGSTDCALL CSharp_btDefaultSoftBodySolver_SWIGUpcast(btDefaultSoftBodySolver *jarg1) {

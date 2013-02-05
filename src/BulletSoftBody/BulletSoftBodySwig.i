@@ -97,6 +97,251 @@
 		btDbvtNode*				m_leaf;			// Leaf data
 	};
 
+	struct	Cluster
+	{
+		tScalarArray				m_masses;
+		btAlignedObjectArray<Node*>	m_nodes;		
+		tVector3Array				m_framerefs;
+		btTransform					m_framexform;
+		btScalar					m_idmass;
+		btScalar					m_imass;
+		btMatrix3x3					m_locii;
+		btMatrix3x3					m_invwi;
+		btVector3					m_com;
+		btVector3					m_vimpulses[2];
+		btVector3					m_dimpulses[2];
+		int							m_nvimpulses;
+		int							m_ndimpulses;
+		btVector3					m_lv;
+		btVector3					m_av;
+		btDbvtNode*					m_leaf;
+		btScalar					m_ndamping;	/* Node damping		*/ 
+		btScalar					m_ldamping;	/* Linear damping	*/ 
+		btScalar					m_adamping;	/* Angular damping	*/ 
+		btScalar					m_matching;
+		btScalar					m_maxSelfCollisionImpulse;
+		btScalar					m_selfCollisionImpulseFactor;
+		bool						m_containsAnchor;
+		bool						m_collide;
+		int							m_clusterIndex;
+		Cluster() : m_leaf(0),m_ndamping(0),m_ldamping(0),m_adamping(0),m_matching(0) 
+		,m_maxSelfCollisionImpulse(100.f),
+		m_selfCollisionImpulseFactor(0.01f),
+		m_containsAnchor(false)
+		{}
+	};
+
+	struct	Impulse
+	{
+		btVector3					m_velocity;
+		btVector3					m_drift;
+		int							m_asVelocity:1;
+		int							m_asDrift:1;
+		Impulse() : m_velocity(0,0,0),m_drift(0,0,0),m_asVelocity(0),m_asDrift(0)	{}
+		Impulse						operator -() const
+		{
+			Impulse i=*this;
+			i.m_velocity=-i.m_velocity;
+			i.m_drift=-i.m_drift;
+			return(i);
+		}
+		Impulse						operator*(btScalar x) const
+		{
+			Impulse i=*this;
+			i.m_velocity*=x;
+			i.m_drift*=x;
+			return(i);
+		}
+	};
+
+	struct	Body
+	{
+		Cluster*			m_soft;
+		btRigidBody*		m_rigid;
+		const btCollisionObject*	m_collisionObject;
+
+		Body() : m_soft(0),m_rigid(0),m_collisionObject(0)				{}
+		Body(Cluster* p) : m_soft(p),m_rigid(0),m_collisionObject(0)	{}
+		Body(const btCollisionObject* colObj) : m_soft(0),m_collisionObject(colObj)
+		{
+			m_rigid = (btRigidBody*)btRigidBody::upcast(m_collisionObject);
+		}
+
+		void						activate() const
+		{
+			if(m_rigid) 
+				m_rigid->activate();
+			if (m_collisionObject)
+				m_collisionObject->activate();
+
+		}
+		const btMatrix3x3&			invWorldInertia() const
+		{
+			static const btMatrix3x3	iwi(0,0,0,0,0,0,0,0,0);
+			if(m_rigid) return(m_rigid->getInvInertiaTensorWorld());
+			if(m_soft)	return(m_soft->m_invwi);
+			return(iwi);
+		}
+		btScalar					invMass() const
+		{
+			if(m_rigid) return(m_rigid->getInvMass());
+			if(m_soft)	return(m_soft->m_imass);
+			return(0);
+		}
+		const btTransform&			xform() const
+		{
+			static const btTransform	identity=btTransform::getIdentity();		
+			if(m_collisionObject) return(m_collisionObject->getWorldTransform());
+			if(m_soft)	return(m_soft->m_framexform);
+			return(identity);
+		}
+		btVector3					linearVelocity() const
+		{
+			if(m_rigid) return(m_rigid->getLinearVelocity());
+			if(m_soft)	return(m_soft->m_lv);
+			return(btVector3(0,0,0));
+		}
+		btVector3					angularVelocity(const btVector3& rpos) const
+		{			
+			if(m_rigid) return(btCross(m_rigid->getAngularVelocity(),rpos));
+			if(m_soft)	return(btCross(m_soft->m_av,rpos));
+			return(btVector3(0,0,0));
+		}
+		btVector3					angularVelocity() const
+		{			
+			if(m_rigid) return(m_rigid->getAngularVelocity());
+			if(m_soft)	return(m_soft->m_av);
+			return(btVector3(0,0,0));
+		}
+		btVector3					velocity(const btVector3& rpos) const
+		{
+			return(linearVelocity()+angularVelocity(rpos));
+		}
+		void						applyVImpulse(const btVector3& impulse,const btVector3& rpos) const
+		{
+			if(m_rigid)	m_rigid->applyImpulse(impulse,rpos);
+			if(m_soft)	btSoftBody::clusterVImpulse(m_soft,rpos,impulse);
+		}
+		void						applyDImpulse(const btVector3& impulse,const btVector3& rpos) const
+		{
+			if(m_rigid)	m_rigid->applyImpulse(impulse,rpos);
+			if(m_soft)	btSoftBody::clusterDImpulse(m_soft,rpos,impulse);
+		}		
+		void						applyImpulse(const Impulse& impulse,const btVector3& rpos) const
+		{
+			if(impulse.m_asVelocity)	
+			{
+//				printf("impulse.m_velocity = %f,%f,%f\n",impulse.m_velocity.getX(),impulse.m_velocity.getY(),impulse.m_velocity.getZ());
+				applyVImpulse(impulse.m_velocity,rpos);
+			}
+			if(impulse.m_asDrift)		
+			{
+//				printf("impulse.m_drift = %f,%f,%f\n",impulse.m_drift.getX(),impulse.m_drift.getY(),impulse.m_drift.getZ());
+				applyDImpulse(impulse.m_drift,rpos);
+			}
+		}
+		void						applyVAImpulse(const btVector3& impulse) const
+		{
+			if(m_rigid)	m_rigid->applyTorqueImpulse(impulse);
+			if(m_soft)	btSoftBody::clusterVAImpulse(m_soft,impulse);
+		}
+		void						applyDAImpulse(const btVector3& impulse) const
+		{
+			if(m_rigid)	m_rigid->applyTorqueImpulse(impulse);
+			if(m_soft)	btSoftBody::clusterDAImpulse(m_soft,impulse);
+		}
+		void						applyAImpulse(const Impulse& impulse) const
+		{
+			if(impulse.m_asVelocity)	applyVAImpulse(impulse.m_velocity);
+			if(impulse.m_asDrift)		applyDAImpulse(impulse.m_drift);
+		}
+		void						applyDCImpulse(const btVector3& impulse) const
+		{
+			if(m_rigid)	m_rigid->applyCentralImpulse(impulse);
+			if(m_soft)	btSoftBody::clusterDCImpulse(m_soft,impulse);
+		}
+	};
+
+		/* Joint		*/ 
+	struct	Joint
+	{
+		struct eType { enum _ {
+			Linear=0,
+			Angular,
+			Contact
+		};};
+		struct Specs
+		{
+			Specs() : erp(1),cfm(1),split(1) {}
+			btScalar	erp;
+			btScalar	cfm;
+			btScalar	split;
+		};
+		Body						m_bodies[2];
+		btVector3					m_refs[2];
+		btScalar					m_cfm;
+		btScalar					m_erp;
+		btScalar					m_split;
+		btVector3					m_drift;
+		btVector3					m_sdrift;
+		btMatrix3x3					m_massmatrix;
+		bool						m_delete;
+		virtual						~Joint() {}
+		Joint() : m_delete(false) {}
+		virtual void				Prepare(btScalar dt,int iterations);
+		virtual void				Solve(btScalar dt,btScalar sor)=0;
+		virtual void				Terminate(btScalar dt)=0;
+		virtual eType::_			Type() const=0;
+	};
+	/* LJoint		*/ 
+	struct	LJoint : Joint
+	{
+		struct Specs : Joint::Specs
+		{
+			btVector3	position;
+		};		
+		btVector3					m_rpos[2];
+		void						Prepare(btScalar dt,int iterations);
+		void						Solve(btScalar dt,btScalar sor);
+		void						Terminate(btScalar dt);
+		eType::_					Type() const { return(eType::Linear); }
+	};
+	/* AJoint		*/ 
+	struct	AJoint : Joint
+	{
+		struct IControl
+		{
+			virtual void			Prepare(AJoint*)				{}
+			virtual btScalar		Speed(AJoint*,btScalar current) { return(current); }
+			static IControl*		Default()						{ static IControl def;return(&def); }
+		};
+		struct Specs : Joint::Specs
+		{
+			Specs() : icontrol(IControl::Default()) {}
+			btVector3	axis;
+			IControl*	icontrol;
+		};		
+		btVector3					m_axis[2];
+		IControl*					m_icontrol;
+		void						Prepare(btScalar dt,int iterations);
+		void						Solve(btScalar dt,btScalar sor);
+		void						Terminate(btScalar dt);
+		eType::_					Type() const { return(eType::Angular); }
+	};
+	/* CJoint		*/ 
+	struct	CJoint : Joint
+	{		
+		int							m_life;
+		int							m_maxlife;
+		btVector3					m_rpos[2];
+		btVector3					m_normal;
+		btScalar					m_friction;
+		void						Prepare(btScalar dt,int iterations);
+		void						Solve(btScalar dt,btScalar sor);
+		void						Terminate(btScalar dt);
+		eType::_					Type() const { return(eType::Contact); }
+	};
+
 	struct	Config
 	{
 		eAeroModel::_			aeromodel;		// Aerodynamic model (default: V_Point)
@@ -211,6 +456,15 @@
 	%nestedworkaround btSoftBody::Config;
 	%nestedworkaround btSoftBody::fCollision;
 
+	%nestedworkaround btSoftBody::Cluster;
+	%nestedworkaround btSoftBody::Impulse;
+	%nestedworkaround btSoftBody::Body;
+	%nestedworkaround btSoftBody::Joint;
+	%nestedworkaround btSoftBody::LJoint;
+	%nestedworkaround btSoftBody::AJoint;
+	%nestedworkaround btSoftBody::CJoint;
+ 
+
 	%nestedworkaround btCollisionWorld::RayResultCallback;
 	%nestedworkaround btCollisionWorld::LocalRayResult;
 	%nestedworkaround btCollisionWorld::LocalShapeInfo;
@@ -292,9 +546,21 @@ typedef btAlignedObjectArray<eVSolver::_>	tVSolverArray;
 typedef btAlignedObjectArray<ePSolver::_>	tPSolverArray;
 typedef btSoftBody::fCollision fCollision;
 
+typedef btSoftBody::Cluster Cluster;
+typedef btSoftBody::Impulse Impulse;
+typedef btSoftBody::Body Body;
+typedef btSoftBody::Joint Joint;
+typedef btSoftBody::LJoint LJoint;
+typedef btSoftBody::AJoint AJoint;
+typedef btSoftBody::CJoint CJoint;
+
+ 
 typedef btCollisionWorld::RayResultCallback RayResultCallback;
 typedef btCollisionWorld::LocalRayResult LocalRayResult;
 typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
+
+typedef btAlignedObjectArray<btScalar>	tScalarArray;
+typedef btAlignedObjectArray<btVector3>	tVector3Array;
 %}
 
 // for later compiler pass.....

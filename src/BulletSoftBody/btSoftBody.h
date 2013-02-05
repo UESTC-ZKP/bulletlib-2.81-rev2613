@@ -816,7 +816,7 @@ public:
 	void				appendLinearJoint(const LJoint::Specs& specs,Cluster* body0,Body body1);
 	void				appendLinearJoint(const LJoint::Specs& specs,Body body=Body());
 	void				appendLinearJoint(const LJoint::Specs& specs,btSoftBody* body);
-	/* Append linear joint													*/ 
+	/* Append Angular joint													*/ 
 	void				appendAngularJoint(const AJoint::Specs& specs,Cluster* body0,Body body1);
 	void				appendAngularJoint(const AJoint::Specs& specs,Body body=Body());
 	void				appendAngularJoint(const AJoint::Specs& specs,btSoftBody* body);
