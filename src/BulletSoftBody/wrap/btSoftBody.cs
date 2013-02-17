@@ -206,13 +206,13 @@ public class btSoftBody : IDisposable {
     } 
   }
 
-  public SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t m_joints {
+  public btAlignedObjectArraySBJointPtr m_joints {
     set {
-      BulletSoftBodyPINVOKE.btSoftBody_m_joints_set(swigCPtr, SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t.getCPtr(value));
+      BulletSoftBodyPINVOKE.btSoftBody_m_joints_set(swigCPtr, btAlignedObjectArraySBJointPtr.getCPtr(value));
     } 
     get {
       IntPtr cPtr = BulletSoftBodyPINVOKE.btSoftBody_m_joints_get(swigCPtr);
-      SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t ret = (cPtr == IntPtr.Zero) ? null : new SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t(cPtr, false);
+      btAlignedObjectArraySBJointPtr ret = (cPtr == IntPtr.Zero) ? null : new btAlignedObjectArraySBJointPtr(cPtr, false);
       return ret;
     } 
   }
@@ -600,6 +600,21 @@ public class btSoftBody : IDisposable {
     if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public void appendLinearJoint(SWIGTYPE_p_btVector3 position, btSoftBody softbody) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendLinearJoint__SWIG_4(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(position), btSoftBody.getCPtr(softbody));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void appendLinearJoint(SWIGTYPE_p_btVector3 position, SWIGTYPE_p_btRigidBody rigidBody) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendLinearJoint__SWIG_5(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(position), SWIGTYPE_p_btRigidBody.getCPtr(rigidBody));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void appendLinearJoint(SWIGTYPE_p_btVector3 position, Cluster body) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendLinearJoint__SWIG_6(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(position), Cluster.getCPtr(body));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public void appendAngularJoint(SWIGTYPE_p_AJoint__Specs specs, Cluster body0, Body body1) {
     BulletSoftBodyPINVOKE.btSoftBody_appendAngularJoint__SWIG_0(swigCPtr, SWIGTYPE_p_AJoint__Specs.getCPtr(specs), Cluster.getCPtr(body0), Body.getCPtr(body1));
     if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
@@ -617,6 +632,21 @@ public class btSoftBody : IDisposable {
 
   public void appendAngularJoint(SWIGTYPE_p_AJoint__Specs specs, btSoftBody body) {
     BulletSoftBodyPINVOKE.btSoftBody_appendAngularJoint__SWIG_3(swigCPtr, SWIGTYPE_p_AJoint__Specs.getCPtr(specs), btSoftBody.getCPtr(body));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void appendAngularJoint(SWIGTYPE_p_btVector3 axis, btSoftBody softbody) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendAngularJoint__SWIG_4(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(axis), btSoftBody.getCPtr(softbody));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void appendAngularJoint(SWIGTYPE_p_btVector3 axis, SWIGTYPE_p_btRigidBody rigidBody) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendAngularJoint__SWIG_5(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(axis), SWIGTYPE_p_btRigidBody.getCPtr(rigidBody));
+    if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void appendAngularJoint(SWIGTYPE_p_btVector3 axis, Cluster body) {
+    BulletSoftBodyPINVOKE.btSoftBody_appendAngularJoint__SWIG_6(swigCPtr, SWIGTYPE_p_btVector3.getCPtr(axis), Cluster.getCPtr(body));
     if (BulletSoftBodyPINVOKE.SWIGPendingException.Pending) throw BulletSoftBodyPINVOKE.SWIGPendingException.Retrieve();
   }
 

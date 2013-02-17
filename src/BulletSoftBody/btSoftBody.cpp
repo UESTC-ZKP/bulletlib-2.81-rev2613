@@ -403,6 +403,48 @@ void			btSoftBody::appendLinearJoint(const LJoint::Specs& specs,Cluster* body0,B
 	m_joints.push_back(pj);
 }
 
+void btSoftBody::appendLinearJoint(const btVector3 &position, btSoftBody* softbody)
+{
+	btSoftBody::LJoint::Specs	lj;
+	lj.position	=	position;
+	appendLinearJoint(lj,softbody);
+}
+
+void btSoftBody::appendLinearJoint(const btVector3 &position, btRigidBody* rigidBody)
+{
+	btSoftBody::LJoint::Specs	lj;
+	lj.position	=	position;
+	appendLinearJoint(lj,rigidBody);
+}
+
+void btSoftBody::appendLinearJoint(const btVector3 &position, Cluster* body)
+{
+	btSoftBody::LJoint::Specs	lj;
+	lj.position	=	position;
+	appendLinearJoint(lj,body);
+}
+
+void btSoftBody::appendAngularJoint(const btVector3 &axis, btSoftBody* softbody)
+{
+	btSoftBody::AJoint::Specs aj;
+	aj.axis = axis;
+	appendAngularJoint(aj,softbody);
+}
+
+void btSoftBody::appendAngularJoint(const btVector3 &axis, btRigidBody* rigidBody)
+{
+	btSoftBody::AJoint::Specs aj;
+	aj.axis = axis;
+	appendAngularJoint(aj,rigidBody);
+}
+
+void btSoftBody::appendAngularJoint(const btVector3 &axis, Cluster* body)
+{
+	btSoftBody::AJoint::Specs aj;
+	aj.axis = axis;
+	appendAngularJoint(aj,body);
+}
+
 //
 void			btSoftBody::appendLinearJoint(const LJoint::Specs& specs,Body body)
 {

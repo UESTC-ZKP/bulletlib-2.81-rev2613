@@ -816,10 +816,23 @@ public:
 	void				appendLinearJoint(const LJoint::Specs& specs,Cluster* body0,Body body1);
 	void				appendLinearJoint(const LJoint::Specs& specs,Body body=Body());
 	void				appendLinearJoint(const LJoint::Specs& specs,btSoftBody* body);
+
+	//linyuan add for unity
+	void                appendLinearJoint(const btVector3 &position, btSoftBody* softbody);
+	void                appendLinearJoint(const btVector3 &position, btRigidBody* rigidBody);
+	void                appendLinearJoint(const btVector3 &position, Cluster* body);
+
+
 	/* Append Angular joint													*/ 
 	void				appendAngularJoint(const AJoint::Specs& specs,Cluster* body0,Body body1);
 	void				appendAngularJoint(const AJoint::Specs& specs,Body body=Body());
 	void				appendAngularJoint(const AJoint::Specs& specs,btSoftBody* body);
+
+	//linyuan add for unity
+	void                appendAngularJoint(const btVector3 &axis, btSoftBody* softbody);
+	void                appendAngularJoint(const btVector3 &axis, btRigidBody* rigidBody);
+	void                appendAngularJoint(const btVector3 &axis, Cluster* body);
+
 	/* Add force (or gravity) to the entire body							*/ 
 	void				addForce(		const btVector3& force);
 	/* Add force (or gravity) to a node of the body							*/ 

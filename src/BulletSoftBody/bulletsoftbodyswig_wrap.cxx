@@ -4574,7 +4574,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_ndbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_ndbvt);
-  btDbvt *temp = new btDbvt();
+   btDbvt *temp = new btDbvt();
   result.clone(*temp);
   jresult = temp;
   return jresult;
@@ -4604,7 +4604,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_fdbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_fdbvt);
-  btDbvt *temp = new btDbvt();
+   btDbvt *temp = new btDbvt();
   result.clone(*temp);
   jresult = temp;
   return jresult;
@@ -4634,9 +4634,9 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_cdbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_cdbvt);
-  btDbvt *temp = new btDbvt();
+   btDbvt *temp = new btDbvt();
   result.clone(*temp);
-  jresult = temp;
+  jresult = temp; 
   return jresult;
 }
 
@@ -5595,6 +5595,54 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_3(void * j
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_4(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btSoftBody *arg3 = (btSoftBody *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btSoftBody *)jarg3; 
+  (arg1)->appendLinearJoint((btVector3 const &)*arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_5(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btRigidBody *arg3 = (btRigidBody *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btRigidBody *)jarg3; 
+  (arg1)->appendLinearJoint((btVector3 const &)*arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendLinearJoint__SWIG_6(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  Cluster *arg3 = (Cluster *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (Cluster *)jarg3; 
+  (arg1)->appendLinearJoint((btVector3 const &)*arg2,arg3);
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_0(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
   btSoftBody *arg1 = (btSoftBody *) 0 ;
   AJoint::Specs *arg2 = 0 ;
@@ -5668,6 +5716,54 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_3(void * 
   } 
   arg3 = (btSoftBody *)jarg3; 
   (arg1)->appendAngularJoint((AJoint::Specs const &)*arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_4(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btSoftBody *arg3 = (btSoftBody *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btSoftBody *)jarg3; 
+  (arg1)->appendAngularJoint((btVector3 const &)*arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_5(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btRigidBody *arg3 = (btRigidBody *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btRigidBody *)jarg3; 
+  (arg1)->appendAngularJoint((btVector3 const &)*arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSoftBody_appendAngularJoint__SWIG_6(void * jarg1, void * jarg2, void * jarg3) {
+  btSoftBody *arg1 = (btSoftBody *) 0 ;
+  btVector3 *arg2 = 0 ;
+  Cluster *arg3 = (Cluster *) 0 ;
+  
+  arg1 = (btSoftBody *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (Cluster *)jarg3; 
+  (arg1)->appendAngularJoint((btVector3 const &)*arg2,arg3);
 }
 
 
@@ -14580,6 +14676,274 @@ SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArrayVector3_copyFromArray(voi
     return ;
   } 
   (arg1)->copyFromArray((btAlignedObjectArray< btVector3 > const &)*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btAlignedObjectArraySBJointPtr__SWIG_0() {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *result = 0 ;
+  
+  result = (btAlignedObjectArray< SBJoint * > *)new btAlignedObjectArray< SBJoint * >();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btAlignedObjectArraySBJointPtr(void * jarg1) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btAlignedObjectArraySBJointPtr__SWIG_1(void * jarg1) {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = 0 ;
+  btAlignedObjectArray< SBJoint * > *result = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btAlignedObjectArray< SBJoint * > const & type is null", 0);
+    return 0;
+  } 
+  result = (btAlignedObjectArray< SBJoint * > *)new btAlignedObjectArray< SBJoint * >((btAlignedObjectArray< SBJoint * > const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_size(void * jarg1) {
+  int jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int result;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  result = (int)((btAlignedObjectArray< SBJoint * > const *)arg1)->size();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_at__SWIG_0(void * jarg1, int jarg2) {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  SBJoint **result = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (SBJoint **) &((btAlignedObjectArray< SBJoint * > const *)arg1)->at(arg2);
+  jresult = (void *)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_clear(void * jarg1) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_pop_back(void * jarg1) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  (arg1)->pop_back();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_resizeNoInitialize(void * jarg1, int jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->resizeNoInitialize(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_resize__SWIG_0(void * jarg1, int jarg2, void * jarg3) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  SBJoint **arg3 = 0 ;
+  SBJoint *temp3 = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (SBJoint *)jarg3;
+  arg3 = (SBJoint **)&temp3; 
+  (arg1)->resize(arg2,(SBJoint *const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_resize__SWIG_1(void * jarg1, int jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->resize(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_expandNonInitializing(void * jarg1) {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **result = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  result = (SBJoint **) &(arg1)->expandNonInitializing();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_expand__SWIG_0(void * jarg1, void * jarg2) {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **arg2 = 0 ;
+  SBJoint *temp2 = 0 ;
+  SBJoint **result = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  temp2 = (SBJoint *)jarg2;
+  arg2 = (SBJoint **)&temp2; 
+  result = (SBJoint **) &(arg1)->expand((SBJoint *const &)*arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_expand__SWIG_1(void * jarg1) {
+  void * jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **result = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  result = (SBJoint **) &(arg1)->expand();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_push_back(void * jarg1, void * jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **arg2 = 0 ;
+  SBJoint *temp2 = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  temp2 = (SBJoint *)jarg2;
+  arg2 = (SBJoint **)&temp2; 
+  (arg1)->push_back((SBJoint *const &)*arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_capacity(void * jarg1) {
+  int jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int result;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  result = (int)((btAlignedObjectArray< SBJoint * > const *)arg1)->capacity();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_reserve(void * jarg1, int jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_swap(void * jarg1, int jarg2, int jarg3) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  (arg1)->swap(arg2,arg3);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_findBinarySearch(void * jarg1, void * jarg2) {
+  int jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **arg2 = 0 ;
+  SBJoint *temp2 = 0 ;
+  int result;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  temp2 = (SBJoint *)jarg2;
+  arg2 = (SBJoint **)&temp2; 
+  result = (int)((btAlignedObjectArray< SBJoint * > const *)arg1)->findBinarySearch((SBJoint *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_findLinearSearch(void * jarg1, void * jarg2) {
+  int jresult ;
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **arg2 = 0 ;
+  SBJoint *temp2 = 0 ;
+  int result;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  temp2 = (SBJoint *)jarg2;
+  arg2 = (SBJoint **)&temp2; 
+  result = (int)((btAlignedObjectArray< SBJoint * > const *)arg1)->findLinearSearch((SBJoint *const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_remove(void * jarg1, void * jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  SBJoint **arg2 = 0 ;
+  SBJoint *temp2 = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  temp2 = (SBJoint *)jarg2;
+  arg2 = (SBJoint **)&temp2; 
+  (arg1)->remove((SBJoint *const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_initializeFromBuffer(void * jarg1, void * jarg2, int jarg3, int jarg4) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  void *arg2 = (void *) 0 ;
+  int arg3 ;
+  int arg4 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (void *)jarg2; 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  (arg1)->initializeFromBuffer(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btAlignedObjectArraySBJointPtr_copyFromArray(void * jarg1, void * jarg2) {
+  btAlignedObjectArray< SBJoint * > *arg1 = (btAlignedObjectArray< SBJoint * > *) 0 ;
+  btAlignedObjectArray< SBJoint * > *arg2 = 0 ;
+  
+  arg1 = (btAlignedObjectArray< SBJoint * > *)jarg1; 
+  arg2 = (btAlignedObjectArray< SBJoint * > *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btAlignedObjectArray< SBJoint * > const & type is null", 0);
+    return ;
+  } 
+  (arg1)->copyFromArray((btAlignedObjectArray< SBJoint * > const &)*arg2);
 }
 
 

@@ -529,6 +529,7 @@
 %template(btAlignedObjectArrayFace) btAlignedObjectArray<Face>;
 %template(btAlignedObjectArrayMaterialPtr) btAlignedObjectArray<Material*>;
 %template(btAlignedObjectArrayVector3) btAlignedObjectArray<btVector3>;
+%template(btAlignedObjectArraySBJointPtr) btAlignedObjectArray<SBJoint*>;
 
 
 %{
