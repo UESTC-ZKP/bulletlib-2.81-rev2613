@@ -313,7 +313,7 @@ typedef btSoftBody::fCollision fCollision;
 typedef btSoftBody::Cluster Cluster;
 typedef btSoftBody::Impulse Impulse;
 typedef btSoftBody::Body Body;
-typedef btSoftBody::Joint Joint;
+typedef btSoftBody::SBJoint SBJoint;
 typedef btSoftBody::LJoint LJoint;
 typedef btSoftBody::AJoint AJoint;
 typedef btSoftBody::CJoint CJoint;
@@ -2203,11 +2203,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Body(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_bodies_set(void * jarg1, void * jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_bodies_set(void * jarg1, void * jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   Body *arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (Body *)jarg2; 
   {
     size_t ii;
@@ -2217,23 +2217,23 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_bodies_set(void * jarg1, void * jarg2
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_bodies_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_m_bodies_get(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   Body *result = 0 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (Body *)(Body *) ((arg1)->m_bodies);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_refs_set(void * jarg1, void * jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_refs_set(void * jarg1, void * jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 *arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btVector3 *)jarg2; 
   {
     size_t ii;
@@ -2243,90 +2243,90 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_refs_set(void * jarg1, void * jarg2) 
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_refs_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_m_refs_get(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 *result = 0 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (btVector3 *)(btVector3 *) ((arg1)->m_refs);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_cfm_set(void * jarg1, float jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_cfm_set(void * jarg1, float jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   if (arg1) (arg1)->m_cfm = arg2;
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_cfm_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_SBJoint_m_cfm_get(void * jarg1) {
   float jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (btScalar) ((arg1)->m_cfm);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_erp_set(void * jarg1, float jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_erp_set(void * jarg1, float jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   if (arg1) (arg1)->m_erp = arg2;
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_erp_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_SBJoint_m_erp_get(void * jarg1) {
   float jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (btScalar) ((arg1)->m_erp);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_split_set(void * jarg1, float jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_split_set(void * jarg1, float jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   if (arg1) (arg1)->m_split = arg2;
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_Joint_m_split_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_SBJoint_m_split_get(void * jarg1) {
   float jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (btScalar) ((arg1)->m_split);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_drift_set(void * jarg1, void * jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_drift_set(void * jarg1, void * jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 arg2 ;
   btVector3 *argp2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   argp2 = (btVector3 *)jarg2; 
   if (!argp2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
@@ -2337,24 +2337,24 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_drift_set(void * jarg1, void * jarg2)
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_drift_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_m_drift_get(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result =  ((arg1)->m_drift);
   jresult = new btVector3((const btVector3 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_sdrift_set(void * jarg1, void * jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_sdrift_set(void * jarg1, void * jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 arg2 ;
   btVector3 *argp2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   argp2 = (btVector3 *)jarg2; 
   if (!argp2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btVector3", 0);
@@ -2365,24 +2365,24 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_sdrift_set(void * jarg1, void * jarg2
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_sdrift_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_m_sdrift_get(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btVector3 result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result =  ((arg1)->m_sdrift);
   jresult = new btVector3((const btVector3 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_massmatrix_set(void * jarg1, void * jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_massmatrix_set(void * jarg1, void * jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btMatrix3x3 arg2 ;
   btMatrix3x3 *argp2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   argp2 = (btMatrix3x3 *)jarg2; 
   if (!argp2) {
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null btMatrix3x3", 0);
@@ -2393,90 +2393,90 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_massmatrix_set(void * jarg1, void * j
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_m_massmatrix_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_m_massmatrix_get(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btMatrix3x3 result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result =  ((arg1)->m_massmatrix);
   jresult = new btMatrix3x3((const btMatrix3x3 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_m_delete_set(void * jarg1, unsigned int jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_m_delete_set(void * jarg1, unsigned int jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   bool arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = jarg2 ? true : false; 
   if (arg1) (arg1)->m_delete = arg2;
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Joint_m_delete_get(void * jarg1) {
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_SBJoint_m_delete_get(void * jarg1) {
   unsigned int jresult ;
-  Joint *arg1 = (Joint *) 0 ;
+  SBJoint *arg1 = (SBJoint *) 0 ;
   bool result;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   result = (bool) ((arg1)->m_delete);
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_Joint(void * jarg1) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_SBJoint(void * jarg1) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   delete arg1;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Prepare(void * jarg1, float jarg2, int jarg3) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_Prepare(void * jarg1, float jarg2, int jarg3) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   int arg3 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   arg3 = (int)jarg3; 
   (arg1)->Prepare(arg2,arg3);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Solve(void * jarg1, float jarg2, float jarg3) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_Solve(void * jarg1, float jarg2, float jarg3) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   btScalar arg3 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   arg3 = (btScalar)jarg3; 
   (arg1)->Solve(arg2,arg3);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Joint_Terminate(void * jarg1, float jarg2) {
-  Joint *arg1 = (Joint *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_SBJoint_Terminate(void * jarg1, float jarg2) {
+  SBJoint *arg1 = (SBJoint *) 0 ;
   btScalar arg2 ;
   
-  arg1 = (Joint *)jarg1; 
+  arg1 = (SBJoint *)jarg1; 
   arg2 = (btScalar)jarg2; 
   (arg1)->Terminate(arg2);
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Joint_Type(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_SBJoint_Type(void * jarg1) {
   void * jresult ;
-  Joint *arg1 = (Joint *) 0 ;
-  Joint::eType::_ result;
+  SBJoint *arg1 = (SBJoint *) 0 ;
+  SBJoint::eType::_ result;
   
-  arg1 = (Joint *)jarg1; 
-  result = ((Joint const *)arg1)->Type();
-  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  arg1 = (SBJoint *)jarg1; 
+  result = ((SBJoint const *)arg1)->Type();
+  jresult = new SBJoint::eType::_((const SBJoint::eType::_ &)result); 
   return jresult;
 }
 
@@ -2544,11 +2544,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_LJoint_Terminate(void * jarg1, float jarg2) {
 SWIGEXPORT void * SWIGSTDCALL CSharp_LJoint_Type(void * jarg1) {
   void * jresult ;
   LJoint *arg1 = (LJoint *) 0 ;
-  Joint::eType::_ result;
+  SBJoint::eType::_ result;
   
   arg1 = (LJoint *)jarg1; 
   result = ((LJoint const *)arg1)->Type();
-  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  jresult = new SBJoint::eType::_((const SBJoint::eType::_ &)result); 
   return jresult;
 }
 
@@ -2656,11 +2656,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_AJoint_Terminate(void * jarg1, float jarg2) {
 SWIGEXPORT void * SWIGSTDCALL CSharp_AJoint_Type(void * jarg1) {
   void * jresult ;
   AJoint *arg1 = (AJoint *) 0 ;
-  Joint::eType::_ result;
+  SBJoint::eType::_ result;
   
   arg1 = (AJoint *)jarg1; 
   result = ((AJoint const *)arg1)->Type();
-  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  jresult = new SBJoint::eType::_((const SBJoint::eType::_ &)result); 
   return jresult;
 }
 
@@ -2840,11 +2840,11 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CJoint_Terminate(void * jarg1, float jarg2) {
 SWIGEXPORT void * SWIGSTDCALL CSharp_CJoint_Type(void * jarg1) {
   void * jresult ;
   CJoint *arg1 = (CJoint *) 0 ;
-  Joint::eType::_ result;
+  SBJoint::eType::_ result;
   
   arg1 = (CJoint *)jarg1; 
   result = ((CJoint const *)arg1)->Type();
-  jresult = new Joint::eType::_((const Joint::eType::_ &)result); 
+  jresult = new SBJoint::eType::_((const SBJoint::eType::_ &)result); 
   return jresult;
 }
 
@@ -4574,7 +4574,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_ndbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_ndbvt);
-   btDbvt *temp = new btDbvt();
+  btDbvt *temp = new btDbvt();
   result.clone(*temp);
   jresult = temp;
   return jresult;
@@ -4604,7 +4604,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_fdbvt_get(void * jarg1) {
   
   arg1 = (btSoftBody *)jarg1; 
   result =  ((arg1)->m_fdbvt);
-     btDbvt *temp = new btDbvt();
+  btDbvt *temp = new btDbvt();
   result.clone(*temp);
   jresult = temp;
   return jresult;
@@ -4636,7 +4636,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_btSoftBody_m_cdbvt_get(void * jarg1) {
   result =  ((arg1)->m_cdbvt);
   btDbvt *temp = new btDbvt();
   result.clone(*temp);
-  jresult = temp; 
+  jresult = temp;
   return jresult;
 }
 
@@ -14603,16 +14603,16 @@ SWIGEXPORT Feature * SWIGSTDCALL CSharp_Face_SWIGUpcast(Face *jarg1) {
     return (Feature *)jarg1;
 }
 
-SWIGEXPORT Joint * SWIGSTDCALL CSharp_LJoint_SWIGUpcast(LJoint *jarg1) {
-    return (Joint *)jarg1;
+SWIGEXPORT SBJoint * SWIGSTDCALL CSharp_LJoint_SWIGUpcast(LJoint *jarg1) {
+    return (SBJoint *)jarg1;
 }
 
-SWIGEXPORT Joint * SWIGSTDCALL CSharp_AJoint_SWIGUpcast(AJoint *jarg1) {
-    return (Joint *)jarg1;
+SWIGEXPORT SBJoint * SWIGSTDCALL CSharp_AJoint_SWIGUpcast(AJoint *jarg1) {
+    return (SBJoint *)jarg1;
 }
 
-SWIGEXPORT Joint * SWIGSTDCALL CSharp_CJoint_SWIGUpcast(CJoint *jarg1) {
-    return (Joint *)jarg1;
+SWIGEXPORT SBJoint * SWIGSTDCALL CSharp_CJoint_SWIGUpcast(CJoint *jarg1) {
+    return (SBJoint *)jarg1;
 }
 
 SWIGEXPORT btSoftBodySolver * SWIGSTDCALL CSharp_btDefaultSoftBodySolver_SWIGUpcast(btDefaultSoftBodySolver *jarg1) {

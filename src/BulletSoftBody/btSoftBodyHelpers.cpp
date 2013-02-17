@@ -391,10 +391,10 @@ void			btSoftBodyHelpers::Draw(	btSoftBody* psb,
 	{
 		for(i=0;i<psb->m_joints.size();++i)
 		{
-			const btSoftBody::Joint*	pj=psb->m_joints[i];
+			const btSoftBody::SBJoint*	pj=psb->m_joints[i];
 			switch(pj->Type())
 			{
-			case	btSoftBody::Joint::eType::Linear:
+			case	btSoftBody::SBJoint::eType::Linear:
 				{
 					const btSoftBody::LJoint*	pjl=(const btSoftBody::LJoint*)pj;
 					const btVector3	a0=pj->m_bodies[0].xform()*pjl->m_refs[0];
@@ -405,7 +405,7 @@ void			btSoftBodyHelpers::Draw(	btSoftBody* psb,
 					drawVertex(idraw,a1,0.25,btVector3(0,1,1));
 				}
 				break;
-			case	btSoftBody::Joint::eType::Angular:
+			case	btSoftBody::SBJoint::eType::Angular:
 				{
 					//const btSoftBody::AJoint*	pja=(const btSoftBody::AJoint*)pj;
 					const btVector3	o0=pj->m_bodies[0].xform().getOrigin();

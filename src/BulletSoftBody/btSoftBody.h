@@ -514,7 +514,7 @@ public:
 		}
 	};
 	/* Joint		*/ 
-	struct	Joint
+	struct	SBJoint    // modify by linyuan for unity's same name class
 	{
 		struct eType { enum _ {
 			Linear=0,
@@ -537,17 +537,17 @@ public:
 		btVector3					m_sdrift;
 		btMatrix3x3					m_massmatrix;
 		bool						m_delete;
-		virtual						~Joint() {}
-		Joint() : m_delete(false) {}
+		virtual						~SBJoint() {}
+		SBJoint() : m_delete(false) {}
 		virtual void				Prepare(btScalar dt,int iterations);
 		virtual void				Solve(btScalar dt,btScalar sor)=0;
 		virtual void				Terminate(btScalar dt)=0;
 		virtual eType::_			Type() const=0;
 	};
 	/* LJoint		*/ 
-	struct	LJoint : Joint
+	struct	LJoint : SBJoint
 	{
-		struct Specs : Joint::Specs
+		struct Specs : SBJoint::Specs
 		{
 			btVector3	position;
 		};		
@@ -558,7 +558,7 @@ public:
 		eType::_					Type() const { return(eType::Linear); }
 	};
 	/* AJoint		*/ 
-	struct	AJoint : Joint
+	struct	AJoint : SBJoint
 	{
 		struct IControl
 		{
@@ -566,7 +566,7 @@ public:
 			virtual btScalar		Speed(AJoint*,btScalar current) { return(current); }
 			static IControl*		Default()						{ static IControl def;return(&def); }
 		};
-		struct Specs : Joint::Specs
+		struct Specs : SBJoint::Specs
 		{
 			Specs() : icontrol(IControl::Default()) {}
 			btVector3	axis;
@@ -580,7 +580,7 @@ public:
 		eType::_					Type() const { return(eType::Angular); }
 	};
 	/* CJoint		*/ 
-	struct	CJoint : Joint
+	struct	CJoint : SBJoint
 	{		
 		int							m_life;
 		int							m_maxlife;
@@ -672,7 +672,7 @@ public:
 	typedef btAlignedObjectArray<RContact>		tRContactArray;
 	typedef btAlignedObjectArray<SContact>		tSContactArray;
 	typedef btAlignedObjectArray<Material*>		tMaterialArray;
-	typedef btAlignedObjectArray<Joint*>		tJointArray;
+	typedef btAlignedObjectArray<SBJoint*>		tJointArray;
 	typedef btAlignedObjectArray<btSoftBody*>	tSoftBodyArray;	
 	typedef btAlignedObjectArray<int>           tNodeIndexOfFaceArray;
 

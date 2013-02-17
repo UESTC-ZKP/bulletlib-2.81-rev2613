@@ -263,7 +263,7 @@
 	};
 
 		/* Joint		*/ 
-	struct	Joint
+	struct	SBJoint    // modify by linyuan for unity's same name class
 	{
 		struct eType { enum _ {
 			Linear=0,
@@ -286,17 +286,17 @@
 		btVector3					m_sdrift;
 		btMatrix3x3					m_massmatrix;
 		bool						m_delete;
-		virtual						~Joint() {}
-		Joint() : m_delete(false) {}
+		virtual						~SBJoint() {}
+		SBJoint() : m_delete(false) {}
 		virtual void				Prepare(btScalar dt,int iterations);
 		virtual void				Solve(btScalar dt,btScalar sor)=0;
 		virtual void				Terminate(btScalar dt)=0;
 		virtual eType::_			Type() const=0;
 	};
 	/* LJoint		*/ 
-	struct	LJoint : Joint
+	struct	LJoint : SBJoint
 	{
-		struct Specs : Joint::Specs
+		struct Specs : SBJoint::Specs
 		{
 			btVector3	position;
 		};		
@@ -307,7 +307,7 @@
 		eType::_					Type() const { return(eType::Linear); }
 	};
 	/* AJoint		*/ 
-	struct	AJoint : Joint
+	struct	AJoint : SBJoint
 	{
 		struct IControl
 		{
@@ -315,7 +315,7 @@
 			virtual btScalar		Speed(AJoint*,btScalar current) { return(current); }
 			static IControl*		Default()						{ static IControl def;return(&def); }
 		};
-		struct Specs : Joint::Specs
+		struct Specs : SBJoint::Specs
 		{
 			Specs() : icontrol(IControl::Default()) {}
 			btVector3	axis;
@@ -329,7 +329,7 @@
 		eType::_					Type() const { return(eType::Angular); }
 	};
 	/* CJoint		*/ 
-	struct	CJoint : Joint
+	struct	CJoint : SBJoint
 	{		
 		int							m_life;
 		int							m_maxlife;
@@ -459,7 +459,7 @@
 	%nestedworkaround btSoftBody::Cluster;
 	%nestedworkaround btSoftBody::Impulse;
 	%nestedworkaround btSoftBody::Body;
-	%nestedworkaround btSoftBody::Joint;
+	%nestedworkaround btSoftBody::SBJoint;
 	%nestedworkaround btSoftBody::LJoint;
 	%nestedworkaround btSoftBody::AJoint;
 	%nestedworkaround btSoftBody::CJoint;
@@ -549,7 +549,7 @@ typedef btSoftBody::fCollision fCollision;
 typedef btSoftBody::Cluster Cluster;
 typedef btSoftBody::Impulse Impulse;
 typedef btSoftBody::Body Body;
-typedef btSoftBody::Joint Joint;
+typedef btSoftBody::SBJoint SBJoint;
 typedef btSoftBody::LJoint LJoint;
 typedef btSoftBody::AJoint AJoint;
 typedef btSoftBody::CJoint CJoint;
@@ -567,3 +567,6 @@ typedef btAlignedObjectArray<btVector3>	tVector3Array;
 // btDbvt *temp = new btDbvt();
 //  result.clone(*temp);
 //  jresult = temp;
+
+// command for swig
+// ..\..\swig\swig -namespace BulletCSharp -c++ -csharp -outdir wrap BulletSoftBodySwig.i

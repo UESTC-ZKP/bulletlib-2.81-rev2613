@@ -2750,7 +2750,7 @@ void					btSoftBody::dampClusters()
 }
 
 //
-void				btSoftBody::Joint::Prepare(btScalar dt,int)
+void				btSoftBody::SBJoint::Prepare(btScalar dt,int)
 {
 	m_bodies[0].activate();
 	m_bodies[1].activate();
@@ -2760,7 +2760,7 @@ void				btSoftBody::Joint::Prepare(btScalar dt,int)
 void				btSoftBody::LJoint::Prepare(btScalar dt,int iterations)
 {
 	static const btScalar	maxdrift=4;
-	Joint::Prepare(dt,iterations);
+	SBJoint::Prepare(dt,iterations);
 	m_rpos[0]		=	m_bodies[0].xform()*m_refs[0];
 	m_rpos[1]		=	m_bodies[1].xform()*m_refs[1];
 	m_drift			=	Clamp(m_rpos[0]-m_rpos[1],maxdrift)*m_erp/dt;
@@ -2804,7 +2804,7 @@ void				btSoftBody::AJoint::Prepare(btScalar dt,int iterations)
 {
 	static const btScalar	maxdrift=SIMD_PI/16;
 	m_icontrol->Prepare(this);
-	Joint::Prepare(dt,iterations);
+	SBJoint::Prepare(dt,iterations);
 	m_axis[0]	=	m_bodies[0].xform().getBasis()*m_refs[0];
 	m_axis[1]	=	m_bodies[1].xform().getBasis()*m_refs[1];
 	m_drift		=	NormalizeAny(btCross(m_axis[1],m_axis[0]));
@@ -2847,7 +2847,7 @@ void				btSoftBody::AJoint::Terminate(btScalar dt)
 //
 void				btSoftBody::CJoint::Prepare(btScalar dt,int iterations)
 {
-	Joint::Prepare(dt,iterations);
+	SBJoint::Prepare(dt,iterations);
 	const bool	dodrift=(m_life==0);
 	m_delete=(++m_life)>m_maxlife;
 	if(dodrift)

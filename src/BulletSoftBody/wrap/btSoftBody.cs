@@ -206,13 +206,13 @@ public class btSoftBody : IDisposable {
     } 
   }
 
-  public SWIGTYPE_p_btAlignedObjectArrayT_Joint_p_t m_joints {
+  public SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t m_joints {
     set {
-      BulletSoftBodyPINVOKE.btSoftBody_m_joints_set(swigCPtr, SWIGTYPE_p_btAlignedObjectArrayT_Joint_p_t.getCPtr(value));
+      BulletSoftBodyPINVOKE.btSoftBody_m_joints_set(swigCPtr, SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t.getCPtr(value));
     } 
     get {
       IntPtr cPtr = BulletSoftBodyPINVOKE.btSoftBody_m_joints_get(swigCPtr);
-      SWIGTYPE_p_btAlignedObjectArrayT_Joint_p_t ret = (cPtr == IntPtr.Zero) ? null : new SWIGTYPE_p_btAlignedObjectArrayT_Joint_p_t(cPtr, false);
+      SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t ret = (cPtr == IntPtr.Zero) ? null : new SWIGTYPE_p_btAlignedObjectArrayT_SBJoint_p_t(cPtr, false);
       return ret;
     } 
   }
